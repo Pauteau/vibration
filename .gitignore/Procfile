@@ -1,0 +1,1 @@
+worker: index de noeud
