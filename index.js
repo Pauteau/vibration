@@ -44,8 +44,3 @@ bot.on("guildMemberRemove", member => {
     member.guild.channels.find("name", "bienvenue-vibration").send(`${member} vient de nous quiter quitter :(`)
 })
 
-
-bot.on ('message', function (message) {
-    if (message.content ==='d/staffchat')
-        message.reply ('@everyone une animation va commencer sur le site vous aurez votre point.')  } 
-    )
