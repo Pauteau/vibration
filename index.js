@@ -1,46 +1,42 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 
-bot.login('Mzc4ODM4MDIxMDQ0MzA1OTMy.Dcn3Ew.8rgq9byGctQa8SaSj4lK7OitNTI');
-
-bot.on('message', function (message) {
-if (message.content ==='d/help') {
-     message.reply ('commandes : d/youtube, d/informations, d/discord, d/ajouter.') }
-    } )
-
-bot.on ('message', function (message) {
-if (message.content ==='d/youtube')
-    message.reply ('La chaîne youtube de Gamond : https://www.youtube.com/Gamond') } 
-
-)
-
-bot.on ('message', function (message) {
-if (message.content ==='d/informations')
-    message.reply ('Mon créateur : Gamond#1229 voilà que sa comme information.')  }
-
-) 
-
-bot.on ('message', function (message) {
-if (message.content ==='d/discord')
-     message.reply ('Discord de mon créateur : https://discord.gg/SjHnMFZ') }  
-    )
-
-    bot.on ('message', function (message) {
-if (message.content ==='d/ajouter')
-    message.reply ('Ajoute moi sur : https://discordapp.com/api/oauth2/authorize?client_id=378838021044305932&permissions=2146958583&scope=bot')  } 
-)
-
+bot.login('Mzc4ODM4MDIxMDQ0MzA1OTMy.Dcn3Ew.8rgq9byGctQa8SaSj4lK7OitNTI')
 
 bot.on("ready" , () => {
     bot.user.setPresence({ game: { name: 'd/help ', type: 0} })
-    console.log("Bot Ready !");
+    console.log("Gamond | Est en ligne !");
 });
 
-bot.on ("guildMemberAdd", member =>{
-    member.guild.channels.find("name", "bienvenue-vibration").send(`Bienvenue à ${member} dans le serveur discord `)
-})
+if (message.content === prefix + "help"){
+    var embed = new Discord.RichEmbed()
+    .setTitle("Page Help")
+    .setDescription("Les commandes sont en dessous :")
+    .addField("d/help | Pour voir les commandes")
+    .addField("d/infobot | Pour voir les nouveautés du bot")
+    .addField("d/avatar | Pour faire apparaître ton avatar")
+    .setColor(0xFF0000)
+    .setFooter("Gamond | Touts les droits réservés ")
+          message.channel.sendEmbed(embed)
+}
 
-bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "bienvenue-vibration").send(`${member} vient de nous quiter quitter :(`)
-})
+
+
+
+
+bot.on("message", function (message) {
+    if (message.content === "d/avatar") {
+        message.channel.send((message.author.avatarURL))
+ }
+} )
+
+bot.on("message", function (message) {
+    if (message.content === "d/infobot") {
+        message.channel.send("Mon développeur me rajoute des nouveautés tous les jours !")
+ }
+} )
+
+
+
+
 
